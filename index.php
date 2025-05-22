@@ -74,10 +74,10 @@ if(!isset($_SESSION['LOGGED_IN_USER'])){
                   <div class="col-md-12">
                     <div class="home-box-content">
                       <div class="left-text">
-                        <h4>New <em>Stacked</em> Template</h4>
-                        <p>Stacked HTML CSS Template is provided by TemplateMo website. You can edit and use this template for any purpose. Please mention your friends about our website. Thank you.</p>
+                        <h4>Smart <em>Seatbelt</em>Monitoring</h4>
+                        <p>Welcome to our Smart Seatbelt project, designed to improve passenger safety and comfort through innovative technology. Our system ensures maximum protection for all travelers. Explore how our smart solutions are shaping the future of passenger safety.</p>
                         <div class="primary-button">
-                          <a href="#2">Discover More</a>
+                          <a href="#2">LEARN MORE</a>
                         </div>
                       </div>
                       <div class="right-image">
@@ -113,10 +113,10 @@ if(!isset($_SESSION['LOGGED_IN_USER'])){
                   </div>
                   <div class="col-md-7 col-md-offset-5">
                     <div class="about-box-text">
-                      <h4>Curabitur varius sapien</h4>
-                      <p>Please feel free to contact us if you have any question or suggestion about our free templates. Thank you. Template redistribution is <strong>NOT allowed</strong>.</p>
+                      <h4>ABOUT OUR PROJECT</h4>
+                      <p>Our mission is to manufacture intelligent seatbelt systems that prioritize passenger safety in public and private transport. We are committed to developing reliable, user-friendly technology that saves lives and enhances the travel experience<strong>NOT allowed</strong>.</p>
                       <div class="primary-button">
-                        <a href="#3">Discover More</a>
+                        <a href="#3">LEARN MORE</a>
                       </div>
                     </div>
                   </div>
@@ -221,8 +221,8 @@ if(!isset($_SESSION['LOGGED_IN_USER'])){
                   </div>
                   <div class="col-md-4">
                     <div class="more-info">
-                      <p>Nunc purus ligula, ullamcorper id velit id, vestibulum auc sapien. Sed quis mauris eget sem imperdiet rhoncus.<br><br>
-                        <em>880 Etiam mauris erat,<br>Vestibulum eu augue nec, 10940</em></p>
+                      <p>If you have any questions about our Smart Seatbelt for Passenger Manufacturing and Safety project, or if you would like to share your feedback, please contact us using the form.Were here to assist you.<br><br>
+                        <em>Smart Safety Avenue<br>Innovation City</em></p>
                     </div>
                   </div>
                 </div>
@@ -230,7 +230,7 @@ if(!isset($_SESSION['LOGGED_IN_USER'])){
             </div>
             <div class="col-md-12">
               <div class="footer">
-                <p>Copyright &copy; 2025 Your Company | Design: TemplateMo</p>
+                <p>Copyright &copy; 2025 Your Company | Smart seatbelt</p>
               </div>
             </div>
           </div>
