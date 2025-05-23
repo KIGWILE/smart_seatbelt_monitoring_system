@@ -9,12 +9,7 @@ if(isset($_POST['submit'])){
   $password= $_POST['password'];
   $cpassword= $_POST['cpassword'];
   $role= $_POST['role'];
-}
 
-  if($password != $cpassword){
-    $msg = "Passwords do not match!";
-  }
-  else {
   $select1= "SELECT * FROM `abood` WHERE email ='$email' AND password = '$password'";
   $select_user= mysqli_query($conn,$select1);
   if(mysqli_num_rows($select_user) > 0){
@@ -98,7 +93,7 @@ if(isset($_POST['submit'])){
 
         <div class="textbox">
           <i class="fa-solid fa-lock"></i>
-          <input type="password" id="cpassword" placeholder="confirm your passwords" name="cpassword" class="form-control" required>
+          <input type="password" id="cpassword" placeholder="confirm your passwords" name="password" class="form-control" required>
         </div>
 
         <!-- ,<input type="button" value="submit"> -->
