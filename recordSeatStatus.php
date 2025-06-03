@@ -1,10 +1,10 @@
 <?php
 
-if(isset($_POST['seatNo']) && isset($_POST['seatState'])){
+if(isset($_GET['seatNo']) && isset($_GET['seatState'])){
     include('config.php');
 
-    $seatNo = $_POST['seatNo'];
-    $seatState = $_POST['seatState'];
+    $seatNo = $_GET['seatNo'];
+    $seatState = ($_GET['seatState'] == "N/A") ? "" : $_GET['seatState'];
 
     $insert1= "INSERT INTO `seatbelt_status`( `seatnumber`, `state`) VALUES ('$seatNo','$seatState') ON DUPLICATE KEY UPDATE state = VALUES(state);";
     if(mysqli_query($conn,$insert1)){
