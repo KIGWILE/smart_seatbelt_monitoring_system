@@ -1,0 +1,97 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.msg{
+    color: red;
+    font-size: 18px;
+}
+
+.form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url(../img/third-bg.png) no-repeat;
+    background-size: cover;
+}
+
+
+.form form{
+    background-color: rgb(244,244,244);
+    text-align: center;
+    box-shadow: 0px 6px 20px darkgrey;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 28rem;
+}
+.form form h2{
+    margin-bottom: 1.5rem;
+}
+.form form input{
+    padding: 10px 15px;
+    font-size: 15px;
+    margin-bottom: 15px;   /* ✅ Added space between blocks */
+    border: 1px solid #ccc; /* ✅ Added visible border */
+    border-radius: 5px;     /* ✅ Optional: Soft rounded corners */
+    width: 100%;            /* ✅ Make all inputs same width */
+    box-sizing: border-box; /* ✅ Ensures padding doesn't overflow */
+}
+
+
+.form form button{
+    width: 100%;
+    margin-top: 10px;
+    background-color: #732595;
+    color: white;
+    font-size: 18px;
+}
+.form form p{
+    font-size: 13px;
+    margin-top: 7px;
+}
+.form form .textbox {
+    position: relative; /* Hii inafanya icons ziwe absolute ndani ya textbox */
+    margin-bottom: 15px; /* Weka nafasi kati ya kila block ya input */
+    display: flex; /* Tumia flexbox kuweka input na icon upande kwa upande */
+    align-items: center; /* Weka vitu katikati kiwima */
+}
+.form form .textbox input {
+    width: 100%; /* Hakikisha input inajaza upana wa .textbox */
+    padding-right: 40px; /* Toa nafasi kwa icon upande wa kulia */
+    /* Code zako zilizopo za padding, border, border-radius, box-sizing zibaki kama zilivyo */
+    padding: 10px 15px; /* Hii ni kutoka code zako za sasa */
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 0; /* Ondoa margin-bottom kutoka kwa input yenyewe, sasa iko kwenye .textbox */
+}
+.form form .textbox i {
+    position: absolute; /* Weka icon bila kuathiri mtiririko wa kawaida */
+    right: 15px; /* Weka 15px kutoka ukingo wa kulia wa input field */
+    top: 50%; /* Weka katikati kiwima (start from the middle) */
+    transform: translateY(-50%); /* Rekebisha nafasi ya wima ili iwe katikati kabisa */
+    color: #888; /* Rangi ya icon (unaweza kuibadilisha) */
+    font-size: 20px; /* Ukubwa wa icon (unaweza kuibadilisha) */
+    pointer-events: none; /* Muhimu: Inahakikisha icon haizuii kubonyeza au kuingiliana na input */
+}
+.form form select {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.msg {
+    color: red;
+    font-size: 18px;
+    margin-bottom: 10px; /* Ongeza nafasi chini ya message */
+}
