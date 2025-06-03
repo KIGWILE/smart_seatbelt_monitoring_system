@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2025 at 04:01 PM
+-- Generation Time: Jun 03, 2025 at 04:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,7 +45,7 @@ CREATE TABLE `abood` (
 
 CREATE TABLE `seatbelt_status` (
   `seatnumber` varchar(3) NOT NULL,
-  `state` tinyint(1) NOT NULL
+  `state` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
