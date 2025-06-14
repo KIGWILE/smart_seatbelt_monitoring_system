@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Seatbelt - Registration</title>
+  <link rel="stylesheet" href="fontawesome-free-6.7.2-web/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBETzZYM7p4L8KgKIId88ufLrkEDQUpD7s",
+      authDomain: "seatbelt-monitoring.firebaseapp.com",
+      projectId: "seatbelt-monitoring",
+      storageBucket: "seatbelt-monitoring.firebasestorage.app",
+      messagingSenderId: "198801411166",
+      appId: "1:198801411166:web:fbd64eff00e691f6e638cf",
+      measurementId: "G-5QXEDX9HMV"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const registerForm = document.getElementById("registerForm");
+
+      registerForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const cpassword = document.getElementById("cpassword").value;
+
+        if (password !== cpassword) {
+          alert("Passwords do not match!");
+          return;
+        }
+
+        try {
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
+
+          await setDoc(doc(db, "users", user.uid), {
+            firstName,
+            lastName,
+            email
+          });
+
+          alert("Registration successful!");
+          window.location.href = "login.html";
+        } catch (error) {
+          alert("Registration error: " + error.message);
+        }
+      });
+    });
+  </script>
+</head>
+
+<body class="bg-gradient-to-r from-green-300 via-yellow-200 to-green-300 min-h-screen flex items-center justify-center p-4 font-sans">
+
+  <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-8 space-y-6">
+
+    <form id="registerForm" class="space-y-5">
+
+      <h2 class="text-2xl font-bold text-green-700 text-center">Create Account</h2>
+
+      <div class="relative">
+        <i class="fa-solid fa-user absolute top-3 left-3 text-green-400"></i>
+        <input
+          type="text" id="firstName" placeholder="First Name"
+          class="w-full pl-10 pr-4 py-3 border border-green-300 rounded-lg focus:ring-2 focus:ring-yellow-400 transition"
+          required />
+      </div>
+
+      <div class="relative">
+        <i class="fa-solid fa-user absolute top-3 left-3 text-green-400"></i>
+        <input
+          type="text" id="lastName" placeholder="Last Name"
+          class="w-full pl-10 pr-4 py-3 border border-green-300 rounded-lg focus:ring-2 focus:ring-yellow-400 transition"
+          required />
+      </div>
+
+      <div class="relative">
+        <i class="fa-solid fa-envelope absolute top-3 left-3 text-green-400"></i>
+        <input
+          type="email" id="email" placeholder="Email"
+          class="w-full pl-10 pr-4 py-3 border border-green-300 rounded-lg focus:ring-2 focus:ring-yellow-400 transition"
+          required />
+      </div>
+
+      <div class="relative">
+        <i class="fa-solid fa-lock absolute top-3 left-3 text-green-400"></i>
+        <input
+          type="password" id="password" placeholder="Password"
+          class="w-full pl-10 pr-4 py-3 border border-green-300 rounded-lg focus:ring-2 focus:ring-yellow-400 transition"
+          required />
+      </div>
+
+      <div class="relative">
+        <i class="fa-solid fa-lock absolute top-3 left-3 text-green-400"></i>
+        <input
+          type="password" id="cpassword" placeholder="Confirm Password"
+          class="w-full pl-10 pr-4 py-3 border border-green-300 rounded-lg focus:ring-2 focus:ring-yellow-400 transition"
+          required />
+      </div>
+
+      <button
+        type="submit"
+        class="w-full bg-gradient-to-r from-green-500 to-yellow-400 text-white font-semibold py-3 rounded-lg hover:from-yellow-400 hover:to-green-500 transition">
+        Register Now
+      </button>
+
+      <p class="text-center text-sm text-gray-600">
+        Already have an account?
+        <a href="login.html" class="text-green-600 font-semibold hover:text-yellow-500 transition">Login Here</a>
+      </p>
+
+    </form>
+  </div>
+  
+
+</body>
+</html>

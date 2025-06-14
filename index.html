@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Smart Seatbelt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBETzZYM7p4L8KgKIId88ufLrkEDQUpD7s",
+      authDomain: "seatbelt-monitoring.firebaseapp.com",
+      projectId: "seatbelt-monitoring",
+      storageBucket: "seatbelt-monitoring.firebasestorage.app",
+      messagingSenderId: "198801411166",
+      appId: "1:198801411166:web:fbd64eff00e691f6e638cf",
+      measurementId: "G-5QXEDX9HMV"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+</head>
+<body class="bg-green-50 text-gray-900 font-sans">
+
+  <!-- Navigation Header -->
+  <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-yellow-400 via-green-400 to-yellow-400 shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-6">
+          <a href="#1" class="text-white font-semibold text-lg hover:text-gray-900 transition">Home</a>
+          <a href="#2" class="text-white font-semibold text-lg hover:text-gray-900 transition">About</a>
+          <a href="#3" class="text-white font-semibold text-lg hover:text-gray-900 transition">Seats</a>
+          <a href="#4" class="text-white font-semibold text-lg hover:text-gray-900 transition">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-20 space-y-24">
+
+    <!-- Home Section -->
+    <section id="1" class="max-w-5xl mx-auto bg-green-100 rounded-lg shadow-lg p-8">
+      <h1 class="text-4xl font-extrabold text-green-800 mb-4">SMART SEATBELT</h1>
+      <p class="text-base text-green-900 mb-6 max-w-prose">Welcome to our Smart Seatbelt project, designed to improve passenger safety and comfort through innovative technology. Our system ensures maximum protection for all travelers. Explore how our smart solutions are shaping the future of passenger safety.</p>
+      <img src="img/bus2.PNG" alt="Bus Image" class="w-full max-w-md mx-auto mb-6 rounded shadow-md" />
+      <div class="flex justify-center space-x-4">
+        <a href="#2" class="bg-yellow-400 hover:bg-yellow-500 text-green-900 font-semibold py-2 px-6 rounded shadow transition">Learn More</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="2" class="max-w-5xl mx-auto bg-yellow-100 rounded-lg shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-yellow-800 mb-4">About Us</h2>
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <img src="img/bus.jpg" alt="Bus" class="w-full md:w-1/2 rounded shadow-md" />
+        <div class="text-yellow-900 max-w-prose text-sm md:text-base">
+          <h3 class="font-semibold mb-2">ABOUT OUR PROJECT</h3>
+          <p>Our mission is to manufacture intelligent seatbelt systems that prioritize passenger safety in public and private transport. We are committed to developing reliable, user-friendly technology that saves lives and enhances the travel experience.</p>
+          <div class="mt-6">
+            <a href="#3" class="bg-green-400 hover:bg-green-500 text-yellow-900 font-semibold py-2 px-6 rounded shadow transition inline-block">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seat Layout Section -->
+    <!-- Seat Layout Section -->
+<section id="3" class="max-w-5xl mx-auto bg-red-100 rounded-lg shadow-lg p-8">
+  <h2 class="text-3xl font-bold text-red-700 mb-6">Bus Seat Layout</h2>
+
+  <div class="grid grid-cols-6 gap-3 justify-center mb-8">
+    <div class="col-span-2 bg-red-400 text-white font-bold flex items-center justify-center rounded-lg text-sm py-2">CONDUCTOR</div>
+    <div class="col-span-4 bg-red-600 text-white font-bold flex items-center justify-center rounded-lg text-sm py-2">DRIVER</div>
+  </div>
+
+  <div class="grid grid-cols-4 gap-3 text-center text-red-800 font-semibold text-sm">
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P1</div>
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P2</div>
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P3</div>
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P4</div>
+
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P5</div>
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P6</div>
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P7</div>
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P8</div>
+
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P9</div>
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P10</div>
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P11</div>
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P12</div>
+
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P13</div>
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P14</div>
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P15</div>
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P16</div>
+
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P17</div>
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P18</div>
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P19</div>
+    <div class="seat bg-red-200 rounded py-2 hover:bg-red-300 cursor-pointer">P20</div>
+  </div>
+
+  <div class="flex justify-between mt-6">
+    <a href="#2" class="bg-yellow-400 hover:bg-yellow-500 text-red-700 font-semibold py-2 px-6 rounded shadow transition">Back to About</a>
+    <a href="#4" class="bg-green-400 hover:bg-green-500 text-red-700 font-semibold py-2 px-6 rounded shadow transition">Go to Contact</a>
+  </div>
+</section>
+
+
+    <!-- Contact Section -->
+    <section id="4" class="max-w-5xl mx-auto bg-green-100 rounded-lg shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-green-800 mb-4">Contact Us</h2>
+      <form id="contact" class="space-y-4 max-w-lg mx-auto" action="" method="post">
+        <input
+          name="name"
+          type="text"
+          placeholder="Your Name"
+          required
+          class="w-full p-3 rounded border border-green-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+        />
+        <input
+          name="email"
+          type="email"
+          placeholder="Email"
+          required
+          class="w-full p-3 rounded border border-green-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+        />
+        <textarea
+          name="message"
+          rows="5"
+          placeholder="Message"
+          required
+          class="w-full p-3 rounded border border-green-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+        ></textarea>
+        <button
+          type="submit"
+          class="bg-yellow-400 hover:bg-yellow-500 text-green-900 font-semibold py-3 px-6 rounded w-full"
+        >
+          Send Message
+        </button>
+      </form>
+      <p class="mt-6 text-center text-green-900 italic max-w-prose mx-auto">
+        If you have any questions about our Smart Seatbelt for Passenger Manufacturing and Safety project, or if you would like to share your feedback, please contact us using the form. We're here to assist you.
+      </p>
+      <p class="mt-2 text-center text-green-700 font-semibold">
+        Smart Safety Avenue<br />Innovation City
+      </p>
+
+      <footer class="mt-8 text-center text-green-600 text-sm">
+        &copy; 2025 Your Company | Smart Seatbelt
+      </footer>
+
+      <div class="flex justify-center mt-6 space-x-4">
+        <a href="#3" class="bg-red-400 hover:bg-red-500 text-green-900 font-semibold py-2 px-6 rounded shadow transition">Back to Seats</a>
+        <a href="#1" class="bg-green-400 hover:bg-green-500 text-green-900 font-semibold py-2 px-6 rounded shadow transition">Back to Home</a>
+      </div>
+    </section>
+
+  </main>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const seats = document.querySelectorAll('.seat');
+
+    // Viti vilivyojazwa tayari
+    const occupiedSeats = ['P3', 'P7', 'P12']; // badilisha kama unataka
+
+    seats.forEach(seat => {
+      const seatId = seat.textContent.trim();
+
+      // Tandika rangi za occupied kwa Tailwind
+      if (occupiedSeats.includes(seatId)) {
+        seat.classList.remove('bg-red-200', 'hover:bg-red-300', 'cursor-pointer');
+        seat.classList.add('bg-gray-400', 'text-white', 'cursor-not-allowed');
+        seat.dataset.occupied = 'true';
+      }
+
+      seat.addEventListener('click', () => {
+        // Usiruhusu kubofya kama seat imejazwa
+        if (seat.dataset.occupied === 'true') return;
+
+        // Toggle selection kwa Tailwind classes
+        seat.classList.toggle('bg-yellow-400'); // selected state
+        seat.classList.toggle('text-gray-900');
+        seat.classList.toggle('font-bold');
+      });
+    });
+  });
+</script>
+
+
+</body>
+</html>

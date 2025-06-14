@@ -1,0 +1,89 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Smart Seatbelt - Login</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="stylesheet" href="fontawesome-free-6.7.2-web/css/all.min.css">
+  <!-- Add this inside <head> -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBETzZYM7p4L8KgKIId88ufLrkEDQUpD7s",
+      authDomain: "seatbelt-monitoring.firebaseapp.com",
+      projectId: "seatbelt-monitoring",
+      storageBucket: "seatbelt-monitoring.firebasestorage.app",
+      messagingSenderId: "198801411166",
+      appId: "1:198801411166:web:fbd64eff00e691f6e638cf",
+      measurementId: "G-5QXEDX9HMV"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const loginForm = document.getElementById("loginForm");
+
+      loginForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        try {
+          const userCredential = await signInWithEmailAndPassword(auth, email, password);
+          alert("Login successful!");
+          window.location.href = "index.html"; // Redirect to home/dashboard
+        } catch (error) {
+          alert("Login failed: " + error.message);
+        }
+      });
+    });
+  </script>
+</head>
+<body class="bg-gradient-to-r from-green-300 via-yellow-200 to-green-300 min-h-screen flex items-center justify-center font-sans">
+
+  <div class="w-full max-w-sm bg-white rounded-xl shadow-lg p-8 space-y-6">
+
+    <form id="loginForm" class="space-y-5">
+
+      <h2 class="text-3xl font-bold text-green-700 text-center tracking-wide">Login</h2>
+
+      <div class="relative">
+        <i class="fa-solid fa-envelope absolute top-3 left-3 text-green-400"></i>
+        <input type="email" placeholder="Email" id="email"
+          class="w-full pl-10 pr-4 py-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition" required>
+      </div>
+
+      <div class="relative">
+        <i class="fa-solid fa-lock absolute top-3 left-3 text-green-400"></i>
+        <input type="password" placeholder="Password" id="password"
+          class="w-full pl-10 pr-4 py-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition" required>
+      </div>
+
+      <button type="submit"
+        class="w-full bg-gradient-to-r from-green-500 to-yellow-400 text-white font-semibold py-3 rounded-lg hover:from-yellow-400 hover:to-green-500 transition">
+        Login Now
+      </button>
+
+      <p class="text-center text-sm text-gray-600">
+        Don't have an account?
+        <a href="registration.html" class="text-green-600 font-semibold hover:text-yellow-500 transition">Register Now</a>
+      </p>
+
+    </form>
+
+  </div>
+
+</body>
+
+</html>
