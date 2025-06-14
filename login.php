@@ -1,7 +1,11 @@
 <?php
 include('config.php');
 
+<<<<<<< HEAD
 session_start();
+=======
+$msg='';
+>>>>>>> 4cba8fde26739af69032277c1abd5b3831325523
 if(isset($_POST['submit'])){
   $email= $_POST['email'];
   $password= $_POST['password'];
@@ -11,6 +15,10 @@ if(isset($_POST['submit'])){
   if(mysqli_num_rows($select_user) > 0){
     $row1= mysqli_fetch_assoc($select_user);
     if(password_verify($password, $row1['password'])){
+<<<<<<< HEAD
+=======
+      session_start();
+>>>>>>> 4cba8fde26739af69032277c1abd5b3831325523
       $_SESSION['LOGGED_IN_USER'] = $row1['id'];
       if($row1['role'] == 'user'){
         $_SESSION['user']= $row1['email'];
@@ -20,10 +28,17 @@ if(isset($_POST['submit'])){
         header('location: index.php');
       }
     }else{
+<<<<<<< HEAD
       $_SESSION['message'] = 'incorrect password!';
     }
   }else{
     $_SESSION['message'] = 'invalid username!';
+=======
+      $msg= 'incorrect password!';
+    }
+  }else{
+    $msg= 'invalid username!';
+>>>>>>> 4cba8fde26739af69032277c1abd5b3831325523
   }
 }
 ?>
@@ -60,6 +75,7 @@ if(isset($_POST['submit'])){
     <div class="form">
       <form action="login.php" method="POST">
         <h2>LOGIN</h2>
+<<<<<<< HEAD
         <p class="msg">
           <?php 
             if(isset($_SESSION['message'])) {
@@ -68,6 +84,9 @@ if(isset($_POST['submit'])){
             }
           ?>
         </p>
+=======
+        <p class="msg"></p>
+>>>>>>> 4cba8fde26739af69032277c1abd5b3831325523
         
 
         <div class="textbox">
@@ -83,6 +102,10 @@ if(isset($_POST['submit'])){
         </div>
 
         <button class="btn" name="submit">Login Now</button>
+<<<<<<< HEAD
         <p>Don't have an Account? <a href="registration.php">Register Now</a></p>
+=======
+        <p>Don't have an Account? <a href="registration.php">Login Now</a></p>
+>>>>>>> 4cba8fde26739af69032277c1abd5b3831325523
 
 </body>

@@ -47,7 +47,11 @@
 .form form button{
     width: 100%;
     margin-top: 10px;
+<<<<<<< HEAD
     background-color:rgb(168, 15, 179);
+=======
+    background-color: #732595;
+>>>>>>> 4cba8fde26739af69032277c1abd5b3831325523
     color: white;
     font-size: 18px;
 }

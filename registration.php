@@ -1,6 +1,10 @@
 <?php
 include('config.php');
+<<<<<<< HEAD
 session_start();
+=======
+$msg='';
+>>>>>>> 4cba8fde26739af69032277c1abd5b3831325523
 if(isset($_POST['submit'])){
   $firstName= $_POST['firstName'];
   $lastName= $_POST['lastName'];
@@ -10,12 +14,18 @@ if(isset($_POST['submit'])){
   $cpassword= $_POST['cpassword'];
   $role= $_POST['role'];
 
+<<<<<<< HEAD
   // if(preg_match('/^(?=.[a-z])(?=.[A-z])(?=.\d)(?=.[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/', $password)){
     $hashed_password= password_hash($password, PASSWORD_DEFAULT);print_r($_POST);
+=======
+  if(preg_match('/^(?=.[a-z])(?=.[A-z])(?=.\d)(?=.[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/', $password)){
+    $hashed_password= password_hash($password, PASSWORD_DEFAULT);
+>>>>>>> 4cba8fde26739af69032277c1abd5b3831325523
 
     $select1= "SELECT * FROM `abood` WHERE email ='$email'";
     $select_user= mysqli_query($conn,$select1);
     if(mysqli_num_rows($select_user) > 0){
+<<<<<<< HEAD
       $_SESSION['message'] = "user already exist!";
     }else{
       $insert1= "INSERT INTO `abood`( `firstname`, `lastname`, `username`, `email`, `password`,`role`) VALUES ('$firstName','$lastName','$userName','$email','$hashed_password','$role')";
@@ -28,6 +38,17 @@ if(isset($_POST['submit'])){
   // }
   header('Location: ' . $_SERVER['PHP_SELF']);
   exit;
+=======
+      $msg= "user already exist!";
+    }else{
+      $insert1= "INSERT INTO `abood`( `firstname`, `lastname`, `username`, `email`, `password`,`role`) VALUES ('$firstName','$lastName','$userName','$email','$password','$role')";
+      mysqli_query($conn,$insert1);
+      header('location:login.php');
+    }
+  }else{
+    $msg = "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one digit, and one special character ";
+  }
+>>>>>>> 4cba8fde26739af69032277c1abd5b3831325523
 }
 ?>
 
@@ -64,6 +85,7 @@ if(isset($_POST['submit'])){
 <body>
 </div>
     <div class="form">
+<<<<<<< HEAD
       <form action="" method="POST">
         <h2>REGISTRATION</h2>
         <p class="msg">
@@ -74,6 +96,11 @@ if(isset($_POST['submit'])){
             }
           ?>
         </p>
+=======
+      <form action="registration.php" method="POST">
+        <h2>REGISTRATION</h2>
+        <p class="msg"><? echo $msg; ?></p>
+>>>>>>> 4cba8fde26739af69032277c1abd5b3831325523
         <div class="textbox">
           <i class="fa-solid fa-user"></i>
           <input type="text" id="firstName" placeholder="Enter your firstName" name="firstName" class="form-control" required>
