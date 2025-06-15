@@ -163,6 +163,21 @@
         <a href="#1" class="bg-green-400 hover:bg-green-500 text-green-900 font-semibold py-2 px-6 rounded shadow transition">Back to Home</a>
       </div>
     </section>
+    <button id="logoutBtn" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded">
+  Logout
+</button>
+
+<script type="module">
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+
+  onAuthStateChanged(getAuth(), (user) => {
+    if (!user) {
+      window.location.href = "login.html";
+    }
+  });
+</script>
+
+
 
   </main>
   <script>
@@ -194,6 +209,19 @@
     });
   });
 </script>
+<script type="module">
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+
+  const auth = getAuth();
+
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      // Kama hakuna user aliye login, rudi kwenye login.html
+      window.location.href = "login.html";
+    }
+  });
+</script>
+
 
 
 </body>
