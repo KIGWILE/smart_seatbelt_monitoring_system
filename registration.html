@@ -8,59 +8,62 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
-    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js";
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyBETzZYM7p4L8KgKIId88ufLrkEDQUpD7s",
-      authDomain: "seatbelt-monitoring.firebaseapp.com",
-      projectId: "seatbelt-monitoring",
-      storageBucket: "seatbelt-monitoring.firebasestorage.app",
-      messagingSenderId: "198801411166",
-      appId: "1:198801411166:web:fbd64eff00e691f6e638cf",
-      measurementId: "G-5QXEDX9HMV"
-    };
+  const firebaseConfig = {
+    apiKey: "AIzaSyBETzZYM7p4L8KgKIId88ufLrkEDQUpD7s",
+    authDomain: "seatbelt-monitoring.firebaseapp.com",
+    databaseURL: "https://seatbelt-monitoring-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "seatbelt-monitoring",
+    storageBucket: "seatbelt-monitoring.appspot.com",
+    messagingSenderId: "198801411166",
+    appId: "1:198801411166:web:fbd64eff00e691f6e638cf",
+    measurementId: "G-5QXEDX9HMV"
+  };
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getDatabase(app);
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const registerForm = document.getElementById("registerForm");
+  document.addEventListener("DOMContentLoaded", () => {
+    const registerForm = document.getElementById("registerForm");
 
-      registerForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
+    registerForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-        const firstName = document.getElementById("firstName").value;
-        const lastName = document.getElementById("lastName").value;
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        const cpassword = document.getElementById("cpassword").value;
+      const firstName = document.getElementById("firstName").value;
+      const lastName = document.getElementById("lastName").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const cpassword = document.getElementById("cpassword").value;
 
-        if (password !== cpassword) {
-          alert("Passwords do not match!");
-          return;
-        }
+      if (password !== cpassword) {
+        alert("Passwords do not match!");
+        return;
+      }
 
-        try {
-          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-          const user = userCredential.user;
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
 
-          await setDoc(doc(db, "users", user.uid), {
-            firstName,
-            lastName,
-            email
-          });
+        // Save to Realtime Database
+        await set(ref(db, "users/" + user.uid), {
+          firstName,
+          lastName,
+          email
+        });
 
-          alert("Registration successful!");
-          window.location.href = "login.html";
-        } catch (error) {
-          alert("Registration error: " + error.message);
-        }
-      });
+        alert("Registration successful!");
+        window.location.href = "login.html";
+      } catch (error) {
+        alert("Registration error: " + error.message);
+      }
     });
-  </script>
+  });
+</script>
+
 </head>
 
 <body class="bg-gradient-to-r from-green-300 via-yellow-200 to-green-300 min-h-screen flex items-center justify-center p-4 font-sans">
